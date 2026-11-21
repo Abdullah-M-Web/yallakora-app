@@ -54,7 +54,7 @@ def scrape_matches(date_str):
     except Exception as e:
         return None, f"تعذر الاتصال بالموقع: {e}"
 
-    soup = BeautifulSoup(response.content, "lxml")
+    soup = BeautifulSoup(response.content, "html.parser")
     championships = soup.find_all("div", {'class': 'matchCard'})
     
     if not championships:
